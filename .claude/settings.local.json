@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"next dev\")",
+      "Bash(/opt/homebrew/bin/gh repo view mikeymarketer/shotlr-rebuilt)",
+      "Bash(/opt/homebrew/bin/brew install gh)",
+      "WebFetch(domain:github.com)",
+      "Bash(supabase --version)",
+      "Bash(brew install supabase/tap/supabase)",
+      "Bash(supabase login)"
+    ]
+  }
+}

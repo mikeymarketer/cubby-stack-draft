@@ -1,0 +1,351 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Loom motion timing tokens */
+:root {
+  --loom-duration-fast: 150ms;
+  --loom-duration-normal: 200ms;
+  --loom-duration-slow: 250ms;
+  --loom-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --loom-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* ==========================================
+   CUBBY – LIGHT MODE
+   ========================================== */
+:root {
+  --radius: 0.625rem;
+
+  /* Brand colors */
+  --cubby-navy: hsl(209 57% 11%);
+  --cubby-blue: hsl(197 91% 49%);
+  --cubby-soft-blue: hsl(199 100% 65%);
+  --cubby-deep-blue: hsl(207 61% 22%);
+
+  /* Surfaces */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(222 47% 11%);
+  --card: hsl(210 40% 96%);
+  --card-foreground: hsl(222 47% 11%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(222 47% 11%);
+
+  /* Primary = Cubby blue */
+  --primary: hsl(197 91% 49%);
+  --primary-foreground: hsl(0 0% 100%);
+
+  --secondary: hsl(210 20% 96%);
+  --secondary-foreground: hsl(222 47% 11%);
+
+  --muted: hsl(210 20% 96%);
+  --muted-foreground: hsl(215 19% 35%);
+
+  --accent: hsl(197 91% 49%);
+  --accent-foreground: hsl(0 0% 100%);
+
+  --destructive: hsl(0 84% 60%);
+
+  --border: hsl(214 32% 91%);
+  --input: hsl(214 32% 91%);
+  --ring: hsl(197 91% 49%);
+
+  /* Charts */
+  --chart-1: hsl(197 91% 49%);
+  --chart-2: hsl(142 71% 45%);
+  --chart-3: hsl(38 92% 50%);
+  --chart-4: hsl(0 84% 60%);
+  --chart-5: hsl(260 80% 60%);
+
+  /* Shadows – light */
+  --shadow-sm: 0 1px 2px 0 hsl(209 57% 11% / 0.04);
+  --shadow-md: 0 4px 6px -1px hsl(209 57% 11% / 0.06), 0 2px 4px -2px hsl(209 57% 11% / 0.04);
+  --shadow-lg: 0 10px 15px -3px hsl(209 57% 11% / 0.08), 0 4px 6px -4px hsl(209 57% 11% / 0.06);
+  --shadow-glow: 0 0 20px hsl(197 91% 49% / 0.15);
+  --shadow-float: 0 1px 3px 0 hsl(209 57% 11% / 0.04), 0 1px 2px -1px hsl(209 57% 11% / 0.03);
+  --shadow-project-card: 0 1px 2px rgba(15, 23, 42, 0.08), 0 6px 16px rgba(15, 23, 42, 0.12);
+  --shadow-folder-card: 0 1px 2px rgba(15, 23, 42, 0.05), 0 6px 14px rgba(15, 23, 42, 0.06);
+
+  /* Sidebar = navy in light mode */
+  --sidebar: hsl(209 57% 11%);
+  --sidebar-foreground: hsl(0 0% 100%);
+  --sidebar-primary: hsl(197 91% 49%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(209 57% 18%);
+  --sidebar-accent-foreground: hsl(0 0% 100%);
+  --sidebar-border: hsl(209 50% 20%);
+  --sidebar-ring: hsl(197 91% 49%);
+}
+
+/* ==========================================
+   CUBBY – DARK MODE
+   ========================================== */
+.dark {
+  /* Brand colors same hue, adjusted lightness */
+  --cubby-navy: hsl(209 57% 11%);
+  --cubby-blue: hsl(197 91% 49%);
+
+  /* Surfaces */
+  --background: hsl(228 24% 9%);
+  --foreground: hsl(210 20% 95%);
+  --card: hsl(228 17% 17%);
+  --card-foreground: hsl(210 20% 95%);
+  --popover: hsl(228 17% 17%);
+  --popover-foreground: hsl(210 20% 95%);
+
+  --primary: hsl(197 91% 49%);
+  --primary-foreground: hsl(220 20% 6%);
+
+  --secondary: hsl(220 16% 14%);
+  --secondary-foreground: hsl(210 20% 85%);
+
+  --muted: hsl(220 14% 12%);
+  --muted-foreground: hsl(215 16% 65%);
+
+  --accent: hsl(197 91% 49%);
+  --accent-foreground: hsl(220 20% 6%);
+
+  --destructive: hsl(0 84% 60%);
+
+  --border: hsl(220 14% 16%);
+  --input: hsl(220 14% 16%);
+  --ring: hsl(197 91% 49%);
+
+  /* Charts */
+  --chart-1: hsl(197 91% 49%);
+  --chart-2: hsl(142 71% 45%);
+  --chart-3: hsl(38 92% 50%);
+  --chart-4: hsl(0 84% 60%);
+  --chart-5: hsl(260 80% 60%);
+
+  /* Shadows – dark */
+  --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
+  --shadow-glow: 0 0 20px hsl(197 91% 49% / 0.25);
+  --shadow-float: 0 1px 3px 0 hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
+  --shadow-project-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 16px rgba(0, 0, 0, 0.4);
+  --shadow-folder-card: 0 1px 2px rgba(0, 0, 0, 0.2), 0 6px 14px rgba(0, 0, 0, 0.3);
+
+  /* Sidebar = same as background in dark mode */
+  --sidebar: hsl(228 24% 9%);
+  --sidebar-foreground: hsl(210 20% 85%);
+  --sidebar-primary: hsl(197 91% 49%);
+  --sidebar-primary-foreground: hsl(0 0% 0%);
+  --sidebar-accent: hsl(0 0% 8%);
+  --sidebar-accent-foreground: hsl(210 20% 95%);
+  --sidebar-border: hsl(0 0% 0%);
+  --sidebar-ring: hsl(197 91% 49%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.011em;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  small {
+    letter-spacing: -0.006em;
+  }
+
+  button, [role="button"] {
+    letter-spacing: -0.011em;
+    font-weight: 500;
+  }
+
+  input, textarea, select {
+    letter-spacing: -0.011em;
+  }
+
+  /* Default scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-muted rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/30; }
+}
+
+@layer components {
+  /* Glass card utility */
+  .glass {
+    @apply bg-card border border-border shadow-sm;
+  }
+
+  .dark .glass {
+    @apply bg-card/80 backdrop-blur-xl border-border/50;
+  }
+
+  /* Auto-hide scrollbar */
+  .scrollbar-autohide {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .scrollbar-autohide::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scrollbar-autohide::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-autohide::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+  .scrollbar-autohide:hover::-webkit-scrollbar-thumb,
+  .scrollbar-autohide.is-scrolling::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30;
+  }
+  .scrollbar-autohide:hover::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+  .scrollbar-autohide:hover,
+  .scrollbar-autohide.is-scrolling {
+    scrollbar-color: hsl(215 16% 65% / 0.3) transparent;
+  }
+
+  /* Fade mask for long rows */
+  .mask-fade-right {
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  /* Loom-style interactive states */
+  .loom-interactive {
+    transition:
+      background-color var(--loom-duration-fast) var(--loom-ease-out),
+      border-color var(--loom-duration-fast) var(--loom-ease-out),
+      color var(--loom-duration-fast) var(--loom-ease-out),
+      opacity var(--loom-duration-fast) var(--loom-ease-out),
+      transform var(--loom-duration-fast) var(--loom-ease-out),
+      box-shadow var(--loom-duration-fast) var(--loom-ease-out);
+  }
+  .loom-interactive:active { transform: scale(0.98); }
+
+  .loom-press:active {
+    transform: scale(0.97);
+    transition: transform 50ms var(--loom-ease-out);
+  }
+
+  /* Drag UX */
+  body.is-dragging,
+  body.is-dragging * { cursor: grabbing !important; }
+
+  [data-draggable] {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+  }
+  [data-draggable]:active { cursor: grabbing; }
+  [data-draggable][data-dragging="true"] {
+    opacity: 0.4;
+    transition: opacity 120ms ease;
+  }
+
+  [data-drag-overlay] {
+    transform: scale(0.98);
+    opacity: 0.95;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.30), 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .dark [data-drag-overlay] {
+    box-shadow: 0 18px 50px rgba(0,0,0,0.50), 0 4px 12px rgba(0,0,0,0.25);
+  }
+
+  [data-drop-active="true"] {
+    outline: 2px solid hsl(197 91% 49% / 0.4);
+    outline-offset: 2px;
+    background: hsl(197 91% 49% / 0.04);
+    transition: outline-color 120ms ease, background 120ms ease;
+  }
+}
+
+/* Loom keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes loomEnter {
+  from { opacity: 0; transform: scale(0.96) translateY(4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes loomExit {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.96) translateY(4px); }
+}
+
+@keyframes loomTooltip {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
