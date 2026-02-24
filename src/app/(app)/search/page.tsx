@@ -258,7 +258,7 @@ export default function SearchPage() {
               <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center mb-4">
                 <Search className="w-6 h-6 text-muted-foreground" />
               </div>
-              <p className="text-sm font-medium text-foreground">No results for "{lastQuery}"</p>
+              <p className="text-sm font-medium text-foreground">No results for &quot;{lastQuery}&quot;</p>
               <p className="text-xs text-muted-foreground mt-1">
                 Try different keywords, or upload and process more footage
               </p>
@@ -266,7 +266,7 @@ export default function SearchPage() {
           ) : (
             <>
               <p className="text-xs text-muted-foreground">
-                {results.length} result{results.length !== 1 ? "s" : ""} for "{lastQuery}"
+                {results.length} result{results.length !== 1 ? "s" : ""} for &quot;{lastQuery}&quot;
               </p>
               {groups.map((group) => (
                 <div key={group.videoId} className="space-y-2">

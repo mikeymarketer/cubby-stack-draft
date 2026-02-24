@@ -242,6 +242,7 @@ export default function ProjectDetailPage() {
     }
   }, [projectId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const alreadyInProject = new Set(events.map((e) => e.clip_id));
