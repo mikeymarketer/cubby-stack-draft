@@ -36,3 +36,6 @@ next-env.d.ts
 # worker — has its own package.json, deploy separately
 /worker/node_modules
 /worker/dist
+
+# stray directory from old scaffold
+/my-app
