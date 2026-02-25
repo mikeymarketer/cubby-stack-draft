@@ -245,6 +245,7 @@ export interface Database {
           workspace_id: string;
           user_id: string;
           title: string;
+          status: string;
           created_at: string;
           updated_at: string;
         };
@@ -253,11 +254,13 @@ export interface Database {
           workspace_id: string;
           user_id: string;
           title: string;
+          status?: string;
           created_at?: string;
           updated_at?: string;
         };
         Update: {
           title?: string;
+          status?: string;
           updated_at?: string;
         };
         Relationships: [];
@@ -272,6 +275,8 @@ export interface Database {
           record_end_timecode: string;
           record_start_seconds: number;
           record_end_seconds: number;
+          must_use: boolean;
+          notes: string | null;
           created_at: string;
         };
         Insert: {
@@ -283,6 +288,8 @@ export interface Database {
           record_end_timecode: string;
           record_start_seconds: number;
           record_end_seconds: number;
+          must_use?: boolean;
+          notes?: string | null;
           created_at?: string;
         };
         Update: {
@@ -291,6 +298,8 @@ export interface Database {
           record_end_timecode?: string;
           record_start_seconds?: number;
           record_end_seconds?: number;
+          must_use?: boolean;
+          notes?: string | null;
         };
         Relationships: [];
       };

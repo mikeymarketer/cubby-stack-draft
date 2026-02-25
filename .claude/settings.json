@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push origin main)",
+      "Bash(git add tsconfig.json)",
+      "Bash(supabase status)",
+      "Bash(psql --version)",
+      "Bash(supabase db execute --help)"
+    ]
+  }
+}
